@@ -1,4 +1,4 @@
-package db.exercise.dao.mapper;
+package db.exercise.dao.mapper.medicine;
 
 import db.exercise.entities.medicine.Doctor;
 import org.springframework.jdbc.core.RowMapper;

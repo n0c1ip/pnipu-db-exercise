@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import org.springframework.context.ApplicationContext;
 
 import java.io.IOException;
 
@@ -13,12 +14,14 @@ public class MainController {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
+	private ApplicationContext applicationContext;
 
 	private void initRootLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/root.fxml"));
 			rootLayout = loader.load();
 			RootController rootController = loader.getController();
+			rootController.setApplicationContext(applicationContext);
 			rootController.setMainController(this);
 			primaryStage.setScene(new Scene(rootLayout));
 			primaryStage.show();
@@ -52,4 +55,9 @@ public class MainController {
 	public BorderPane getRootLayout() {
 		return rootLayout;
 	}
+
+	public void setApplicationContext(ApplicationContext applicationContext) {
+		this.applicationContext = applicationContext;
+	}
+
 }

@@ -1,6 +1,6 @@
-package db.exercise.dao.jdbc;
+package db.exercise.dao.jdbc.medicine;
 
-import db.exercise.dao.mapper.DoctorMapper;
+import db.exercise.dao.mapper.medicine.DoctorMapper;
 import db.exercise.entities.medicine.Doctor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
