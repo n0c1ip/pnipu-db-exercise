@@ -1,9 +1,12 @@
 package db.exercise.controller;
 
 
+import db.exercise.controller.medicine.DiagnosisController;
 import db.exercise.controller.medicine.DoctorController;
 import db.exercise.controller.medicine.PatientController;
+import db.exercise.dao.jdbc.medicine.DiagnosisDaoJdbc;
 import db.exercise.dao.jdbc.medicine.DoctorDaoJdbc;
+import db.exercise.dao.jdbc.medicine.PatientDaoJdbc;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -39,10 +42,24 @@ public class RootController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/patients.fxml"));
 			Pane table = loader.load();
 			PatientController controller = loader.getController();
-			controller.setDoctorDaoJdbc(applicationContext.getBean(DoctorDaoJdbc.class));
-			controller.setMainController(mainController);
+			controller.setDoctorDaoJdbc(applicationContext.getBean(PatientDaoJdbc.class));
 			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
 			Tab tab = new Tab("Patients");
+			tab.setContent(table);
+			tabLayout.getTabs().add(tab);
+		} catch (IOException ex) {
+			ex.getMessage();
+		}
+	}
+
+	public void showDiagnosisTable() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/diagnoses.fxml"));
+			Pane table = loader.load();
+			DiagnosisController controller = loader.getController();
+			controller.setDiagnosisDaoJdbc(applicationContext.getBean(DiagnosisDaoJdbc.class));
+			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
+			Tab tab = new Tab("Diagnosis");
 			tab.setContent(table);
 			tabLayout.getTabs().add(tab);
 		} catch (IOException ex) {
@@ -57,6 +74,7 @@ public class RootController {
 	public void showMedicineTables() {
 		showDoctorTable();
 		showPatientsTable();
+		showDiagnosisTable();
 	}
 
 	public void closeAllTabs(){
