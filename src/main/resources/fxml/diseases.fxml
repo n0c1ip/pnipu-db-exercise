@@ -4,12 +4,12 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.medicine.PatientController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.medicine.DiseaseController">
    <children>
       <TableView fx:id="tableView" prefHeight="400.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="id" prefWidth="43.0" text="ID" />
-          <TableColumn fx:id="lastName" prefWidth="240.0" text="TITLE" />
+          <TableColumn fx:id="idColumn" prefWidth="43.0" text="ID" />
+          <TableColumn fx:id="titleColumn" prefWidth="556.0" text="Название" />
         </columns>
       </TableView>
    </children>

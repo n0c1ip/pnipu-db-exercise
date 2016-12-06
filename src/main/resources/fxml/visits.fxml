@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.medicine.VisitController">
+    <children>
+        <TableView fx:id="tableView" prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="patientIdColumn" prefWidth="92.0" text="PATIENT ID" />
+                <TableColumn fx:id="doctorIdColumn" prefWidth="114.0" text="DOCTOR ID" />
+                <TableColumn fx:id="visitDateColumn" prefWidth="114.0" text="VISIT DATE" />
+            </columns>
+        </TableView>
+    </children>
+</Pane>

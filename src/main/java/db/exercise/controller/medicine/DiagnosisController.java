@@ -17,10 +17,6 @@ public class DiagnosisController {
 	@FXML
 	public TableColumn<Diagnosis, Long> id;
 	@FXML
-	public TableColumn<Diagnosis, Long> patientColumn;
-	@FXML
-	public TableColumn<Diagnosis, Long> doctorColumn;
-	@FXML
 	public TableColumn<Diagnosis, Long> diseaseColumn;
 	@FXML
 	public TableColumn<Diagnosis, Long> visitColumn;
@@ -28,8 +24,6 @@ public class DiagnosisController {
 	@FXML
 	private void initialize() {
 		id.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getId()));
-		patientColumn.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getPatientId()));
-		doctorColumn.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getDoctorId()));
 		diseaseColumn.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getDiseaseId()));
 		visitColumn.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getVisitId()));
 	}
