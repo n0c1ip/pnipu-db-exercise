@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.cinema.MoviesController">
+    <children>
+        <TableView fx:id="tableView" prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="id" prefWidth="43.0" text="ID" />
+                <TableColumn fx:id="title" prefWidth="143.0" text="НАЗВАНИЕ" />
+                <TableColumn fx:id="director" prefWidth="91.0" text="РЕЖИСЕР" />
+                <TableColumn fx:id="date" minWidth="0.0" prefWidth="61.0" text="ГОД" />
+            <TableColumn fx:id="country" prefWidth="83.0" text="СТРАНА" />
+            <TableColumn fx:id="seriesCount" prefWidth="85.0" text="КОЛ. СЕРИЙ" />
+            <TableColumn fx:id="theme" prefWidth="93.0" text="ТЕМАТИКА" />
+            </columns>
+        </TableView>
+    </children>
+</Pane>

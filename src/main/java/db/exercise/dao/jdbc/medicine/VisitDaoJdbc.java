@@ -3,6 +3,7 @@ package db.exercise.dao.jdbc.medicine;
 import db.exercise.dao.mapper.medicine.VisitMapper;
 import db.exercise.entities.medicine.Visit;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +15,7 @@ public class VisitDaoJdbc {
 	private static final String query = "SELECT * FROM visits";
 
 	@Autowired
+	@Qualifier(value = "medicineTemplate")
 	private JdbcTemplate jdbcTemplate;
 
 	public List<Visit> findAll(){

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.cinema.ShowsController">
+    <children>
+        <TableView fx:id="tableView" prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="id" prefWidth="43.0" text="ID" />
+                <TableColumn fx:id="cinema" prefWidth="171.0" text="КИНОТЕАТР" />
+                <TableColumn fx:id="movie" prefWidth="188.0" text="ФИЛЬМ" />
+                <TableColumn fx:id="date" minWidth="0.0" prefWidth="197.0" text="ВРЕМЯ СЕАНСА" />
+            </columns>
+        </TableView>
+    </children>
+</Pane>

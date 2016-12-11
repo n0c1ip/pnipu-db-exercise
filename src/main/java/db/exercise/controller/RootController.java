@@ -1,7 +1,9 @@
 package db.exercise.controller;
 
 
+import db.exercise.controller.cinema.*;
 import db.exercise.controller.medicine.*;
+import db.exercise.dao.jdbc.cinema.*;
 import db.exercise.dao.jdbc.medicine.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Tab;
@@ -18,6 +20,7 @@ public class RootController {
 	private ApplicationContext applicationContext;
 
 
+	//TABLES MEDICINE
 	public void showDoctorTable() {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/doctors.fxml"));
@@ -108,22 +111,140 @@ public class RootController {
 		}
 	}
 
-	public void setMainController(MainController mainController) {
-		this.mainController = mainController;
+	//TABLES CINEMA
+	public void showCinemaTable() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/cinemas.fxml"));
+			Pane table = loader.load();
+			CinemaController controller = loader.getController();
+			controller.setCinemaDaoJdbc(applicationContext.getBean(CinemaDaoJdbc.class));
+			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
+			Tab tab = new Tab("Cinemas");
+			tab.setContent(table);
+			tabLayout.getTabs().add(tab);
+		} catch (IOException ex) {
+			ex.getMessage();
+		}
 	}
 
+	public void showMoviesTable() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/movies.fxml"));
+			Pane table = loader.load();
+			MoviesController controller = loader.getController();
+			controller.setMovieDaoJdbc(applicationContext.getBean(MovieDaoJdbc.class));
+			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
+			Tab tab = new Tab("Movies");
+			tab.setContent(table);
+			tabLayout.getTabs().add(tab);
+		} catch (IOException ex) {
+			ex.getMessage();
+		}
+	}
+
+	public void showShowsTable() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/shows.fxml"));
+			Pane table = loader.load();
+			ShowsController controller = loader.getController();
+			controller.setShowDaoJdbc(applicationContext.getBean(ShowDaoJdbc.class));
+			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
+			Tab tab = new Tab("Shows");
+			tab.setContent(table);
+			tabLayout.getTabs().add(tab);
+		} catch (IOException ex) {
+			ex.getMessage();
+		}
+	}
+
+	public void showDirectorsTable() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/directors.fxml"));
+			Pane table = loader.load();
+			DirectorsController controller = loader.getController();
+			controller.setMovieDaoJdbc(applicationContext.getBean(DirectorDaoJdbc.class));
+			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
+			Tab tab = new Tab("Directors");
+			tab.setContent(table);
+			tabLayout.getTabs().add(tab);
+		} catch (IOException ex) {
+			ex.getMessage();
+		}
+	}
+
+	public void showThemeTable() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/themes.fxml"));
+			Pane table = loader.load();
+			ThemesController controller = loader.getController();
+			controller.setThemeDaoJdbc(applicationContext.getBean(ThemeDaoJdbc.class));
+			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
+			Tab tab = new Tab("Themes");
+			tab.setContent(table);
+			tabLayout.getTabs().add(tab);
+		} catch (IOException ex) {
+			ex.getMessage();
+		}
+	}
+
+	public void showTypesTable() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/types.fxml"));
+			Pane table = loader.load();
+			TypesController controller = loader.getController();
+			controller.setTypeDaoJdbc(applicationContext.getBean(TypeDaoJdbc.class));
+			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
+			Tab tab = new Tab("Types");
+			tab.setContent(table);
+			tabLayout.getTabs().add(tab);
+		} catch (IOException ex) {
+			ex.getMessage();
+		}
+	}
+
+	public void showCountriesTable() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/countries.fxml"));
+			Pane table = loader.load();
+			CountriesController controller = loader.getController();
+			controller.setCountryDaoJdbc(applicationContext.getBean(CountryDaoJdbc.class));
+			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
+			Tab tab = new Tab("Countries");
+			tab.setContent(table);
+			tabLayout.getTabs().add(tab);
+		} catch (IOException ex) {
+			ex.getMessage();
+		}
+	}
+
+	//BUTTONS
 	public void showMedicineTables() {
 		showDoctorTable();
 		showPatientsTable();
-		showDiagnosisTable();
-		showVisitsTable();
 		showDiseasesTable();
+		showVisitsTable();
+		showDiagnosisTable();
 		showCardTable();
+	}
+
+	public void showCinemaTables() {
+		showDirectorsTable();
+		showThemeTable();
+		showCountriesTable();
+		showCinemaTable();
+		showMoviesTable();
+		showShowsTable();
+		showTypesTable();
 	}
 
 	public void closeAllTabs(){
 		tabLayout.getTabs().remove(0, tabLayout.getTabs().size());
 
+	}
+
+	//REFS
+	public void setMainController(MainController mainController) {
+		this.mainController = mainController;
 	}
 
 	public void setApplicationContext(ApplicationContext applicationContext) {
