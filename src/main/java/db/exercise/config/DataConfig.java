@@ -21,6 +21,14 @@ public class DataConfig {
 		return new JdbcTemplate(cinemaDataSource());
 	}
 
+	@Bean
+	public JdbcTemplate boatsTemplate() {
+		return new JdbcTemplate(boatsDataSource());
+	}
+
+
+
+
 	@Bean(name = "medicineDataSource")
 	@Primary
 	public DataSource medicineDataSource() {
@@ -37,6 +45,16 @@ public class DataConfig {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/cinema");
+		dataSource.setUsername("root");
+		dataSource.setPassword("root");
+		return dataSource;
+	}
+
+	@Bean(name = "boatsDataSource")
+	public DataSource boatsDataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/boats");
 		dataSource.setUsername("root");
 		dataSource.setPassword("root");
 		return dataSource;

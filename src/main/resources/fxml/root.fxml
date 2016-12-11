@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.RootController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.RootController">
    <bottom>
-      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="810.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" contentDisplay="TOP" lineSpacing="5.0" mnemonicParsing="false" onAction="#showMedicineTables" text="Medicine" textAlignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="TOP" lineSpacing="5.0" mnemonicParsing="false" onAction="#showMedicineTables" text="1. Медицина" textAlignment="CENTER">
                <opaqueInsets>
                   <Insets right="15.0" />
                </opaqueInsets>
@@ -17,7 +17,15 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </Button>
-            <Button alignment="CENTER" contentDisplay="TOP" layoutX="20.0" layoutY="13.0" lineSpacing="5.0" mnemonicParsing="false" onAction="#showCinemaTables" text="Cinema" textAlignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="TOP" layoutX="20.0" layoutY="13.0" lineSpacing="5.0" mnemonicParsing="false" onAction="#showCinemaTables" text="2. Кинотеатры" textAlignment="CENTER">
+               <opaqueInsets>
+                  <Insets right="15.0" />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="TOP" layoutX="20.0" layoutY="13.0" lineSpacing="5.0" mnemonicParsing="false" onAction="#showCinemaTables" text="3. Лодочная" textAlignment="CENTER">
                <opaqueInsets>
                   <Insets right="15.0" />
                </opaqueInsets>
