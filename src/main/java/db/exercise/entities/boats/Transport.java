@@ -13,8 +13,8 @@ public class Transport {
 	private long id;
 	private String title;
 	private String number;
-	private long state;
-	private long type;
+	private TransportState state;
+	private TransportType type;
 	private boolean availability;
 
 }
