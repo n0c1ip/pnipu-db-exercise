@@ -1,15 +1,21 @@
 package db.exercise.entities.boats;
 
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Rent {
-  private Long id;
-  private Client client;
-  private Transport transport;
-  private Water water;
-  private Date rentedAt;
-  private Date rentedTo;
-  private Briefing briefing;
-  private Boolean briefing_done;
+
+  private String client;
+  private String title;
+  private String type;
+  private String water;
+  private java.sql.Timestamp rented_at;
+  private java.sql.Timestamp rented_to;
 
 }

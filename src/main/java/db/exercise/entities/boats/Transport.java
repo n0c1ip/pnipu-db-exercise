@@ -10,11 +10,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Transport {
 
-	private long id;
 	private String title;
 	private String number;
-	private TransportState state;
-	private TransportType type;
+	private String state;
+	private String type;
 	private boolean availability;
 
 }

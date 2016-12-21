@@ -1,8 +1,12 @@
 package db.exercise.controller;
 
 
+import db.exercise.controller.boats.RentController;
+import db.exercise.controller.boats.TransportController;
 import db.exercise.controller.cinema.*;
 import db.exercise.controller.medicine.*;
+import db.exercise.dao.jdbc.boats.RentDaoJdbc;
+import db.exercise.dao.jdbc.boats.TransportDaoJdbc;
 import db.exercise.dao.jdbc.cinema.*;
 import db.exercise.dao.jdbc.medicine.*;
 import javafx.fxml.FXMLLoader;
@@ -217,6 +221,39 @@ public class RootController {
 		}
 	}
 
+	// BOATS
+	public void showTransportTable() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/transport.fxml"));
+			Pane table = loader.load();
+			TransportController controller = loader.getController();
+			controller.setTransportDaoJdbc(applicationContext.getBean(TransportDaoJdbc.class));
+			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
+			Tab tab = new Tab("Transport");
+			tab.setContent(table);
+			tabLayout.getTabs().add(tab);
+		} catch (IOException ex) {
+			ex.getMessage();
+		}
+	}
+
+	public void showRentTable() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/rent.fxml"));
+			Pane table = loader.load();
+			RentController controller = loader.getController();
+			controller.setRentDaoJdbc(applicationContext.getBean(RentDaoJdbc.class));
+			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
+			Tab tab = new Tab("Rent");
+			tab.setContent(table);
+			tabLayout.getTabs().add(tab);
+		} catch (IOException ex) {
+			ex.getMessage();
+		}
+	}
+
+
+
 	//BUTTONS
 	public void showMedicineTables() {
 		showDoctorTable();
@@ -237,6 +274,11 @@ public class RootController {
 		showTypesTable();
 	}
 
+	public void showBoatsTables() {
+		showTransportTable();
+		showRentTable();
+	}
+
 	public void closeAllTabs(){
 		tabLayout.getTabs().remove(0, tabLayout.getTabs().size());
 
@@ -251,3 +293,5 @@ public class RootController {
 		this.applicationContext = applicationContext;
 	}
 }
+
+

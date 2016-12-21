@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.boats.TransportController">
+    <children>
+        <TableView fx:id="tableView" prefHeight="440.0" prefWidth="800.0">
+            <columns>
+                <TableColumn fx:id="title" prefWidth="116.0" text="НАЗВАНИЕ" />
+                <TableColumn fx:id="number" prefWidth="143.0" text="НОМЕР" />
+                <TableColumn fx:id="state" prefWidth="193.0" text="СОСТОЯНИЕ" />
+            <TableColumn fx:id="type" prefWidth="193.0" text="ТИП" />
+            <TableColumn fx:id="availability" prefWidth="150.0" text="ДОСТУПНОСТЬ" />
+            </columns>
+        </TableView>
+    </children>
+</Pane>

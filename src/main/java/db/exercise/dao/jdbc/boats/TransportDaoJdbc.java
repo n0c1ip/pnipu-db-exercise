@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class TransportDaoJdbc {
 
-	private static final String query = "SELECT * FROM transports";
+	private static final String query = "SELECT * FROM v_transport";
 
 	@Autowired
 	@Qualifier(value = "boatsTemplate")

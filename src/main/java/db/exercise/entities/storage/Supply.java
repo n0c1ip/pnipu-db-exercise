@@ -1,4 +1,4 @@
-package db.exercise.entities.boats;
+package db.exercise.entities.storage;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,9 +8,12 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TransportEquipment {
+public class Supply {
 
 	private long id;
-	private String title;
+	private Truck truckId;
+	private Product productId;
+	private Storage storageId;
+	private Integer count;
 
 }

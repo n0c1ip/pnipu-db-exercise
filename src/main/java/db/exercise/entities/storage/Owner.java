@@ -1,4 +1,4 @@
-package db.exercise.entities.boats;
+package db.exercise.entities.storage;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,9 +8,9 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TransportType {
+public class Owner {
 
 	private long id;
-	private String title;
+	private String lastName;
 
 }
