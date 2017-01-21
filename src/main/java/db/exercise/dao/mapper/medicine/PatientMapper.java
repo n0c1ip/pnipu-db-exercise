@@ -15,6 +15,8 @@ public class PatientMapper implements RowMapper<Patient> {
 		patient.setAddress(resultSet.getString("address"));
 		patient.setBirthDay(resultSet.getDate("birthday"));
 		patient.setLastName(resultSet.getString("lastName"));
+		patient.setFirstName(resultSet.getString("firstName"));
+		patient.setMiddleName(resultSet.getString("middleName"));
 		return patient;
 	}
 }

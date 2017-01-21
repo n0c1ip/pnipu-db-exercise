@@ -16,45 +16,12 @@ public class DataConfig {
 		return new JdbcTemplate(medicineDataSource());
 	}
 
-	@Bean
-	public JdbcTemplate cinemaTemplate() {
-		return new JdbcTemplate(cinemaDataSource());
-	}
-
-	@Bean
-	public JdbcTemplate boatsTemplate() {
-		return new JdbcTemplate(boatsDataSource());
-	}
-
-
-
-
 	@Bean(name = "medicineDataSource")
 	@Primary
 	public DataSource medicineDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/medicine");
-		dataSource.setUsername("root");
-		dataSource.setPassword("root");
-		return dataSource;
-	}
-
-	@Bean(name = "cinemaDataSource")
-	public DataSource cinemaDataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/cinema");
-		dataSource.setUsername("root");
-		dataSource.setPassword("root");
-		return dataSource;
-	}
-
-	@Bean(name = "boatsDataSource")
-	public DataSource boatsDataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/boats");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/dispanser");
 		dataSource.setUsername("root");
 		dataSource.setPassword("root");
 		return dataSource;

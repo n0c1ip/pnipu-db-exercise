@@ -4,15 +4,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
-import java.util.List;
 
 @Getter @Setter
 public class Patient {
 
 	private long id;
+	private String firstName;
 	private String lastName;
+	private String middleName;
 	private String address;
 	private Date birthDay;
-	private List<Diagnosis> diagnoses;
+	private String diagnoses;
 
+	@Override
+	public String toString() {
+		return lastName + " " + firstName + " " + middleName;
+	}
 }

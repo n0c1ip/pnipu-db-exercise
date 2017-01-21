@@ -15,6 +15,7 @@ public class MainController {
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 	private ApplicationContext applicationContext;
+	private ModalController modalController;
 
 	private void initRootLayout() {
 		try {
@@ -23,8 +24,10 @@ public class MainController {
 			RootController rootController = loader.getController();
 			rootController.setApplicationContext(applicationContext);
 			rootController.setMainController(this);
+			modalController = new ModalController(primaryStage, this);
 			primaryStage.setScene(new Scene(rootLayout));
 			primaryStage.show();
+
 		} catch (IOException e) {
 			e.getMessage();
 		}
@@ -54,6 +57,10 @@ public class MainController {
 
 	public BorderPane getRootLayout() {
 		return rootLayout;
+	}
+
+	public ModalController getModalController() {
+		return modalController;
 	}
 
 	public void setApplicationContext(ApplicationContext applicationContext) {

@@ -9,23 +9,7 @@
    <bottom>
       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="810.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" contentDisplay="TOP" lineSpacing="5.0" mnemonicParsing="false" onAction="#showMedicineTables" text="1. Медицина" textAlignment="CENTER">
-               <opaqueInsets>
-                  <Insets right="15.0" />
-               </opaqueInsets>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button alignment="CENTER" contentDisplay="TOP" layoutX="20.0" layoutY="13.0" lineSpacing="5.0" mnemonicParsing="false" onAction="#showCinemaTables" text="2. Кинотеатры" textAlignment="CENTER">
-               <opaqueInsets>
-                  <Insets right="15.0" />
-               </opaqueInsets>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button alignment="CENTER" contentDisplay="TOP" layoutX="20.0" layoutY="13.0" lineSpacing="5.0" mnemonicParsing="false" onAction="#showBoatsTables" text="3. Лодочная" textAlignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="TOP" lineSpacing="5.0" mnemonicParsing="false" onAction="#showMedicineTables" text="Пациенты" textAlignment="CENTER">
                <opaqueInsets>
                   <Insets right="15.0" />
                </opaqueInsets>
