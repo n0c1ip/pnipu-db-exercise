@@ -4,13 +4,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="863.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.medicine.PatientController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.medicine.PatientController">
    <children>
-      <TableView fx:id="tableView" prefHeight="514.0" prefWidth="863.0">
+      <TableView fx:id="tableView" prefHeight="500.0" prefWidth="800.0">
         <columns>
-          <TableColumn fx:id="name" prefWidth="286.0" text="ФАМИЛИЯ" />
-            <TableColumn fx:id="birthDay" prefWidth="224.0" text="ДАТА РОЖДЕНИЯ" />
-            <TableColumn fx:id="address" prefWidth="308.0" text="АДРЕС" />
+          <TableColumn fx:id="name" prefWidth="286.0" text="ФИО" />
+            <TableColumn fx:id="birthDay" prefWidth="187.0" text="ДАТА РОЖДЕНИЯ" />
+            <TableColumn fx:id="address" minWidth="0.0" prefWidth="231.0" text="АДРЕС" />
+            <TableColumn fx:id="control" prefWidth="96.0" text="НА УЧЕТЕ" />
         </columns>
       </TableView>
    </children>

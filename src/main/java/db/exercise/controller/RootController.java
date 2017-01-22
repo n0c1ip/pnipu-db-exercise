@@ -17,8 +17,6 @@ public class RootController {
 	private TabPane tabLayout;
 	private ApplicationContext applicationContext;
 
-
-	//TABLES MEDICINE
 	public void showPatientsTable() {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/patients.fxml"));
@@ -35,10 +33,23 @@ public class RootController {
 		}
 	}
 
-	//BUTTONS
-	public void showMedicineTables() {
-		showPatientsTable();
+	public void showDoctorsTable() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/doctors.fxml"));
+			Pane table = loader.load();
+			DoctorController controller = loader.getController();
+			controller.setDoctorDaoJdbc(applicationContext.getBean(DoctorDaoJdbc.class));
+			controller.setMainController(mainController);
+			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
+			Tab tab = new Tab("Реестр врачей");
+			tab.setContent(table);
+			tabLayout.getTabs().add(tab);
+		} catch (IOException ex) {
+			ex.getMessage();
+		}
 	}
+
+
 
 	public void closeAllTabs(){
 		tabLayout.getTabs().remove(0, tabLayout.getTabs().size());

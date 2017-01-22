@@ -1,6 +1,6 @@
 package db.exercise.dao.mapper.medicine;
 
-import db.exercise.entities.medicine.Patient;
+import db.exercise.entities.Patient;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -17,6 +17,13 @@ public class PatientMapper implements RowMapper<Patient> {
 		patient.setLastName(resultSet.getString("lastName"));
 		patient.setFirstName(resultSet.getString("firstName"));
 		patient.setMiddleName(resultSet.getString("middleName"));
+		patient.setOnControl(resultSet.getBoolean("control"));
+		patient.setCardNumber(resultSet.getString("card_number"));
+		patient.setSnils(resultSet.getString("snils"));
+		patient.setPolis(resultSet.getString("polis"));
+		patient.setPhone(resultSet.getString("phone"));
+		patient.setMale(resultSet.getShort("male"));
+		patient.setWorkInfo(resultSet.getString("workinfo"));
 		return patient;
 	}
 }

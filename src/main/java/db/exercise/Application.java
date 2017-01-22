@@ -2,6 +2,7 @@ package db.exercise;
 
 import db.exercise.controller.MainController;
 import db.exercise.integration.AbstractJavaFxApplicationSupport;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,6 +22,7 @@ public class Application extends AbstractJavaFxApplicationSupport {
 
     @Override
     public void start(Stage stage) throws Exception {
+        stage.getIcons().add(new Image("/pic/app_icon.png"));
         MainController mainController = new MainController();
         mainController.setPrimaryStage(stage);
         mainController.setApplicationContext(applicationContext);

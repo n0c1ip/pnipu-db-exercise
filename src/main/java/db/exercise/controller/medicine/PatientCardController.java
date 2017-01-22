@@ -1,7 +1,7 @@
 package db.exercise.controller.medicine;
 
-import db.exercise.entities.medicine.Patient;
-import javafx.fxml.FXML;
+import db.exercise.entities.Patient;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -11,17 +11,18 @@ import java.time.ZoneId;
 
 public class PatientCardController {
 
-	@FXML
 	public TextField lastName;
-	@FXML
 	public DatePicker birthDay;
-	@FXML
 	public TextField firstName;
-	@FXML
 	public TextField middleName;
-	@FXML
 	public TextArea address;
-
+	public CheckBox female;
+	public CheckBox male;
+	public TextField cardNumber;
+	public TextField polis;
+	public TextField snils;
+	public TextField phone;
+	public TextArea workInfo;
 
 	private Patient patient;
 
@@ -33,5 +34,15 @@ public class PatientCardController {
 		middleName.setText(patient.getMiddleName());
 		address.setText(patient.getAddress());
 		birthDay.setValue(Instant.ofEpochMilli(patient.getBirthDay().getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+		if (patient.getMale() == 0) {
+			female.setSelected(true);
+		} else {
+			male.setSelected(true);
+		}
+		cardNumber.setText(patient.getCardNumber());
+		polis.setText(patient.getPolis());
+		snils.setText(patient.getSnils());
+		phone.setText(patient.getPhone());
+		workInfo.setText(patient.getWorkInfo());
 	}
 }

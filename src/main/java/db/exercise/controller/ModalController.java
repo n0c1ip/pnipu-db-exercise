@@ -1,9 +1,10 @@
 package db.exercise.controller;
 
 import db.exercise.controller.medicine.PatientCardController;
-import db.exercise.entities.medicine.Patient;
+import db.exercise.entities.Patient;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -20,12 +21,10 @@ public class ModalController {
 		this.mainController = mainController;
 	}
 
-	public void showNetworkEditDialog(String title, Patient patient) {
-		getNetworkEditDialog(title, patient).showAndWait();
-	}
-	public Stage getNetworkEditDialog(String title, Patient patient){
+	public void showPatientEditDialog(String title, Patient patient) {
 		final Stage dialog = new Stage();
-		try{
+		dialog.getIcons().add(new Image("/pic/app_icon.png"));
+		try {
 			dialog.setTitle(title);
 			dialog.initModality(Modality.WINDOW_MODAL);
 			dialog.initOwner(primaryStage);
@@ -35,12 +34,10 @@ public class ModalController {
 			PatientCardController controller = loader.getController();
 			controller.setPatient(patient);
 			dialog.setScene(new Scene(patientCard));
-			return  dialog;
+			dialog.showAndWait();
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		return dialog;
-	}
 
+	}
 }
