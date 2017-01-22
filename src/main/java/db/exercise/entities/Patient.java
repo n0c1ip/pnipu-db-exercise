@@ -1,11 +1,13 @@
 package db.exercise.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
 
 @Getter @Setter
+@NoArgsConstructor
 public class Patient {
 
 	private long id;
@@ -22,6 +24,12 @@ public class Patient {
 	private Short male;
 	private String workInfo;
 	private boolean onControl;
+
+	public Patient(String firstName, String lastName, String middleName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.middleName = middleName;
+	}
 
 	@Override
 	public String toString() {

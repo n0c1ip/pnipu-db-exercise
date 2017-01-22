@@ -22,7 +22,7 @@ public class RootController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/patients.fxml"));
 			Pane table = loader.load();
 			PatientController controller = loader.getController();
-			controller.setDoctorDaoJdbc(applicationContext.getBean(PatientDaoJdbc.class));
+			controller.setDaoJdbc(applicationContext.getBean(PatientDaoJdbc.class), applicationContext.getBean(DiagnosisDaoJdbc.class));
 			controller.setMainController(mainController);
 			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
 			Tab tab = new Tab("Реестр пациентов");

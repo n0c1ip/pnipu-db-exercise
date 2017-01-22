@@ -2,7 +2,9 @@ package db.exercise.controller.medicine;
 
 import db.exercise.controller.MainController;
 import db.exercise.controller.ModalController;
+import db.exercise.dao.jdbc.medicine.DiagnosisDaoJdbc;
 import db.exercise.dao.jdbc.medicine.PatientDaoJdbc;
+import db.exercise.entities.Diagnosis;
 import db.exercise.entities.Patient;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -11,10 +13,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import java.util.Date;
+import java.util.List;
 
 public class PatientController {
 
 	private PatientDaoJdbc patientDaoJdbc;
+	private DiagnosisDaoJdbc diagnosisDaoJdbc;
 	private MainController mainController;
 	private ModalController modalController;
 
@@ -45,8 +49,9 @@ public class PatientController {
 		});
 	}
 
-	public void setDoctorDaoJdbc(PatientDaoJdbc patientDaoJdbc) {
+	public void setDaoJdbc(PatientDaoJdbc patientDaoJdbc, DiagnosisDaoJdbc diagnosisDaoJdbc) {
 		this.patientDaoJdbc = patientDaoJdbc;
+		this.diagnosisDaoJdbc = diagnosisDaoJdbc;
 		tableView.setItems(FXCollections.observableArrayList(patientDaoJdbc.findAll()));
 	}
 
@@ -59,7 +64,8 @@ public class PatientController {
 	private void handlePatientDoubleClickButton() {
 		Patient selectedPatient = tableView.getSelectionModel().getSelectedItem();
 		if (selectedPatient != null) {
-			mainController.getModalController().showPatientEditDialog("Карточка пациента - " + selectedPatient.toString(), selectedPatient);
+			List<Diagnosis> diagnosisList = diagnosisDaoJdbc.findById(selectedPatient.getId());
+			mainController.getModalController().showPatientEditDialog("Карточка пациента - " + selectedPatient.toString(), selectedPatient, diagnosisList);
 		}
 	}
 
