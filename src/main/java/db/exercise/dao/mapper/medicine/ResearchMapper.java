@@ -22,7 +22,7 @@ public class ResearchMapper implements RowMapper<Research> {
 				resultSet.getString("d_middleName"),""));
 		research.setTitle(resultSet.getString("r_title"));
 		research.setType(resultSet.getInt("r_type"));
-		research.setResult("result");
+		research.setResult(resultSet.getString("result"));
 		return research;
 	}
 }

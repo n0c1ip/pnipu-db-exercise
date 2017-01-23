@@ -18,7 +18,7 @@ public class ResearchDaoJdbc {
 					"       res_date, R.title as r_title, type as r_type, result from patients_research\n" +
 					"JOIN doctors as D on patients_research.doctor = D.id\n" +
 					"JOIN patients as P on patients_research.patient = P.id\n" +
-					"JOIN research as R on patients_research.research_ref = R.id where patients_research.id = ?";
+					"JOIN research as R on patients_research.research_ref = R.id where patients_research.patient = ?";
 
 	private static final String queryAll =
 			"SELECT D.firstName as d_firstName, D.lastName as d_lastName, D.middleName as d_middleName,\n" +
@@ -36,7 +36,7 @@ public class ResearchDaoJdbc {
 		return jdbcTemplate.query(queryAll, new ResearchMapper());
 	}
 
-	public List<Research> findById(Long id){
+	public List<Research> findByPatientId(Long id){
 		return jdbcTemplate.query(query, new ResearchMapper(), new Object[]{id});
 	}
 

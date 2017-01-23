@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.medicine.PatientCardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.PatientCardController">
    <children>
       <TabPane prefHeight="432.0" prefWidth="750.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -168,10 +168,9 @@
                      <children>
                         <TableView fx:id="lab_table" layoutX="120.0" layoutY="59.0" prefHeight="403.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="res_date" prefWidth="135.0" text="Дата проведения" />
-                            <TableColumn fx:id="res_name" prefWidth="217.0" text="Название исследования" />
-                              <TableColumn fx:id="res_doctor" prefWidth="172.0" text="Специалист" />
-                              <TableColumn fx:id="res_result" prefWidth="225.0" text="Результат" />
+                            <TableColumn fx:id="labDate" prefWidth="135.0" text="Дата проведения" />
+                            <TableColumn fx:id="labName" prefWidth="314.0" text="Название исследования" />
+                              <TableColumn fx:id="labDoctor" prefWidth="300.0" text="Специалист" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
@@ -179,12 +178,30 @@
           </Tab>
             <Tab text="Осмотр специалиста">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="viewTable" prefHeight="403.0" prefWidth="750.0">
+                           <columns>
+                              <TableColumn fx:id="viewDate" prefWidth="135.0" text="Дата проведения" />
+                               <TableColumn fx:id="viewName" prefWidth="300.0" text="Обследование" />
+                               <TableColumn fx:id="viewDoctor" prefWidth="314.0" text="Специалист" />
+                           </columns>
+                        </TableView>
+                     </children></AnchorPane>
                </content>
             </Tab>
             <Tab text="Функциональная диагностика">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="functionTable" prefHeight="403.0" prefWidth="750.0">
+                           <columns>
+                              <TableColumn fx:id="functionDate" prefWidth="135.0" text="Дата проведения" />
+                              <TableColumn fx:id="functionName" prefWidth="314.0" text="Название исследования" />
+                              <TableColumn fx:id="functionDoctor" prefWidth="300.0" text="Специалист" />
+                           </columns>
+                        </TableView>
+                     </children></AnchorPane>
                </content>
             </Tab>
             <Tab text="Установленные диагнозы">
@@ -194,10 +211,9 @@
                         <TableView fx:id="diagnosesTable" layoutX="122.0" layoutY="24.0" prefHeight="403.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn fx:id="diag_date" prefWidth="109.0" text="Дата приема" />
-                            <TableColumn fx:id="doctor" prefWidth="127.0" text="Специалист" />
-                              <TableColumn fx:id="specialization" prefWidth="135.0" text="Специализация" />
-                              <TableColumn fx:id="diseases" prefWidth="139.0" text="Заболевание" />
-                              <TableColumn fx:id="comment" prefWidth="239.0" text="Комментарий врача" />
+                            <TableColumn fx:id="doctor" prefWidth="176.0" text="Специалист" />
+                              <TableColumn fx:id="specialization" prefWidth="172.0" text="Специализация" />
+                              <TableColumn fx:id="diseases" prefWidth="292.0" text="Заболевание" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>

@@ -1,7 +1,6 @@
 package db.exercise.controller;
 
 
-import db.exercise.controller.medicine.*;
 import db.exercise.dao.jdbc.medicine.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Tab;
@@ -22,7 +21,9 @@ public class RootController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/patients.fxml"));
 			Pane table = loader.load();
 			PatientController controller = loader.getController();
-			controller.setDaoJdbc(applicationContext.getBean(PatientDaoJdbc.class), applicationContext.getBean(DiagnosisDaoJdbc.class));
+			controller.setDaoJdbc(applicationContext.getBean(PatientDaoJdbc.class),
+					 			  applicationContext.getBean(DiagnosisDaoJdbc.class),
+								  applicationContext.getBean(ResearchDaoJdbc.class));
 			controller.setMainController(mainController);
 			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
 			Tab tab = new Tab("Реестр пациентов");

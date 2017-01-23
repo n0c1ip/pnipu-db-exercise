@@ -1,7 +1,5 @@
-package db.exercise.controller.medicine;
+package db.exercise.controller;
 
-import db.exercise.controller.MainController;
-import db.exercise.controller.ModalController;
 import db.exercise.dao.jdbc.medicine.DoctorDaoJdbc;
 import db.exercise.entities.Doctor;
 import javafx.beans.property.SimpleObjectProperty;

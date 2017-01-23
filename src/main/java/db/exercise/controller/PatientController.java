@@ -1,11 +1,11 @@
-package db.exercise.controller.medicine;
+package db.exercise.controller;
 
-import db.exercise.controller.MainController;
-import db.exercise.controller.ModalController;
 import db.exercise.dao.jdbc.medicine.DiagnosisDaoJdbc;
 import db.exercise.dao.jdbc.medicine.PatientDaoJdbc;
+import db.exercise.dao.jdbc.medicine.ResearchDaoJdbc;
 import db.exercise.entities.Diagnosis;
 import db.exercise.entities.Patient;
+import db.exercise.entities.Research;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -19,8 +19,9 @@ public class PatientController {
 
 	private PatientDaoJdbc patientDaoJdbc;
 	private DiagnosisDaoJdbc diagnosisDaoJdbc;
+	private ResearchDaoJdbc researchDaoJdbc;
+
 	private MainController mainController;
-	private ModalController modalController;
 
 	@FXML
 	private TableView<Patient> tableView;
@@ -49,9 +50,10 @@ public class PatientController {
 		});
 	}
 
-	public void setDaoJdbc(PatientDaoJdbc patientDaoJdbc, DiagnosisDaoJdbc diagnosisDaoJdbc) {
+	public void setDaoJdbc(PatientDaoJdbc patientDaoJdbc, DiagnosisDaoJdbc diagnosisDaoJdbc, ResearchDaoJdbc researchDaoJdbc) {
 		this.patientDaoJdbc = patientDaoJdbc;
 		this.diagnosisDaoJdbc = diagnosisDaoJdbc;
+		this.researchDaoJdbc = researchDaoJdbc;
 		tableView.setItems(FXCollections.observableArrayList(patientDaoJdbc.findAll()));
 	}
 
@@ -59,13 +61,14 @@ public class PatientController {
 		this.mainController = mainController;
 	}
 
-
 	@FXML
 	private void handlePatientDoubleClickButton() {
 		Patient selectedPatient = tableView.getSelectionModel().getSelectedItem();
 		if (selectedPatient != null) {
-			List<Diagnosis> diagnosisList = diagnosisDaoJdbc.findById(selectedPatient.getId());
-			mainController.getModalController().showPatientEditDialog("Карточка пациента - " + selectedPatient.toString(), selectedPatient, diagnosisList);
+			List<Diagnosis> diagnosisList = diagnosisDaoJdbc.findByPatientId(selectedPatient.getId());
+			List<Research> researchList = researchDaoJdbc.findByPatientId(selectedPatient.getId());
+			mainController.getModalController().showPatientEditDialog("Карточка пациента - " +
+					selectedPatient.toString(), selectedPatient, diagnosisList, researchList);
 		}
 	}
 

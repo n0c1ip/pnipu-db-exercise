@@ -38,7 +38,7 @@ public class DiagnosisDaoJdbc {
 		return jdbcTemplate.query(queryAll, new DiagnosisMapper());
 	}
 
-	public List<Diagnosis> findById(Long id){
+	public List<Diagnosis> findByPatientId(Long id){
 		return jdbcTemplate.query(query, new DiagnosisMapper(), new Object[]{id});
 	}
 
