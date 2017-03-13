@@ -50,7 +50,20 @@ public class RootController {
 		}
 	}
 
-
+	public void showSchedulerTable() {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/scheduler.fxml"));
+			Pane table = loader.load();
+			SchedulerController controller = loader.getController();
+			controller.setSchedulerDaoJdbc(applicationContext.getBean(SchedulerDaoJdbc.class));
+			tabLayout = (TabPane) mainController.getRootLayout().getCenter();
+			Tab tab = new Tab("Расписание приема");
+			tab.setContent(table);
+			tabLayout.getTabs().add(tab);
+		} catch (IOException ex) {
+			ex.getMessage();
+		}
+	}
 
 	public void closeAllTabs(){
 		tabLayout.getTabs().remove(0, tabLayout.getTabs().size());
@@ -65,6 +78,8 @@ public class RootController {
 	public void setApplicationContext(ApplicationContext applicationContext) {
 		this.applicationContext = applicationContext;
 	}
+
+
 }
 
 

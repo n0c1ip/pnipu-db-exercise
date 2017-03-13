@@ -9,7 +9,7 @@
    <bottom>
       <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="810.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" onAction="#showPatientsTable" contentDisplay="TOP" lineSpacing="5.0" mnemonicParsing="false" text="Пациенты" textAlignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="TOP" lineSpacing="5.0" mnemonicParsing="false" onAction="#showPatientsTable" text="Пациенты" textAlignment="CENTER">
                <opaqueInsets>
                   <Insets right="15.0" />
                </opaqueInsets>
@@ -17,7 +17,15 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </Button>
-            <Button alignment="CENTER" onAction="#showDoctorsTable" contentDisplay="TOP" lineSpacing="5.0" mnemonicParsing="false" text="Врачи" textAlignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="TOP" lineSpacing="5.0" mnemonicParsing="false" onAction="#showDoctorsTable" text="Врачи" textAlignment="CENTER">
+               <opaqueInsets>
+                  <Insets right="15.0" />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="TOP" layoutX="102.0" layoutY="13.0" lineSpacing="5.0" mnemonicParsing="false" onAction="#showSchedulerTable" text="Расписание" textAlignment="CENTER">
                <opaqueInsets>
                   <Insets right="15.0" />
                </opaqueInsets>

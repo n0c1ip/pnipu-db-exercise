@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="db.exercise.controller.SchedulerController">
+   <children>
+      <TableView fx:id="tableView" prefHeight="500.0" prefWidth="800.0">
+        <columns>
+          <TableColumn fx:id="doctor" prefWidth="251.0" text="ВРАЧ" />
+            <TableColumn fx:id="patient" prefWidth="222.0" text="ПАЦИЕНТ" />
+            <TableColumn fx:id="datetime" prefWidth="326.0" text="ВРЕМЯ ПРИЕМА" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>
