@@ -9,9 +9,12 @@ import db.exercise.entities.Research;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -30,14 +33,23 @@ public class PatientController {
 	public TableColumn<Patient, String> address;
 	public TableColumn <Patient, String> control;
 
+	ContextMenu patientsContextMenu;
 
 	@FXML
 	private void initialize() {
+		initiatePatientContextMenu();
 		tableView.setOnMousePressed(event -> {
+			if (event.isPrimaryButtonDown() && patientsContextMenu.isShowing()){
+				patientsContextMenu.hide();
+			}
+			if (event.isSecondaryButtonDown()) {
+				patientsContextMenu.show(tableView,event.getScreenX(),event.getScreenY());
+			}
 			if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
 				handlePatientDoubleClickButton();
 			}
 		});
+
 		name.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().toString()));
 		birthDay.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getBirthDay()));
 		address.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getAddress()));
@@ -48,6 +60,28 @@ public class PatientController {
 				return new SimpleObjectProperty<>("НЕТ");
 			}
 		});
+	}
+
+	private void initiatePatientContextMenu(){
+		MenuItem addPatient = new MenuItem("Добавить пациента");
+		MenuItem editPatient = new MenuItem("Редактировать пациента");
+		MenuItem removePatient = new MenuItem("Удалить пациента");
+
+		patientsContextMenu = new ContextMenu(addPatient,editPatient,removePatient);
+
+		addPatient.setOnAction(event -> handleNewPatientButton());
+		editPatient.setOnAction(event -> handlePatientDoubleClickButton());
+		removePatient.setOnAction(event -> handleDeletePatient());
+	}
+
+	private void handleDeletePatient() {
+
+	}
+
+	private void handleNewPatientButton() {
+		Patient newPatient = new Patient();
+		newPatient.setBirthDay(new Date());
+		mainController.getModalController().showPatientEditDialog("Добавление нового пациента", newPatient, new ArrayList<>(), new ArrayList<>());
 	}
 
 	public void setDaoJdbc(PatientDaoJdbc patientDaoJdbc, DiagnosisDaoJdbc diagnosisDaoJdbc, ResearchDaoJdbc researchDaoJdbc) {
