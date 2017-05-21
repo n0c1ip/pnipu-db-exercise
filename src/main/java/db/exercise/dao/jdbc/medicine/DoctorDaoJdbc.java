@@ -11,16 +11,7 @@ import java.util.List;
 @Repository
 public class DoctorDaoJdbc {
 
-	private static final String query =
-			"SELECT doctors.id, " +
-					"firstName, " +
-					"lastName, " +
-					"middleName, " +
-					"vacation, " +
-					"Q.title as qualification, " +
-					"S.title as specialization FROM doctors \n" +
-			"join doctors_qualification as Q on Q.id = qualification \n" +
-			"join doctors_specialization as S on S.id = specialization;";
+	private static final String query = "SELECT * from v_doctors";
 
 	@Autowired
 	@Qualifier(value = "medicineTemplate")

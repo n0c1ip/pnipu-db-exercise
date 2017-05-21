@@ -13,20 +13,10 @@ import java.util.List;
 public class ResearchDaoJdbc {
 
 	private static final String query =
-			"SELECT D.firstName as d_firstName, D.lastName as d_lastName, D.middleName as d_middleName,\n" +
-					"       P.firstName as p_firstName, P.lastName as p_lastName, P.middleName as p_middleName,\n" +
-					"       res_date, R.title as r_title, type as r_type, result from patients_research\n" +
-					"JOIN doctors as D on patients_research.doctor = D.id\n" +
-					"JOIN patients as P on patients_research.patient = P.id\n" +
-					"JOIN research as R on patients_research.research_ref = R.id where patients_research.patient = ?";
+			"SELECT * from v_researches where patient_id = ?";
 
 	private static final String queryAll =
-			"SELECT D.firstName as d_firstName, D.lastName as d_lastName, D.middleName as d_middleName,\n" +
-					"       P.firstName as p_firstName, P.lastName as p_lastName, P.middleName as p_middleName,\n" +
-					"       res_date, R.title as r_title, type as r_type, result from patients_research\n" +
-					"JOIN doctors as D on patients_research.doctor = D.id\n" +
-					"JOIN patients as P on patients_research.patient = P.id\n" +
-					"JOIN research as R on patients_research.research_ref = R.id";
+			"SELECT * from v_researches";
 
 	@Autowired
 	@Qualifier(value = "medicineTemplate")
@@ -39,6 +29,5 @@ public class ResearchDaoJdbc {
 	public List<Research> findByPatientId(Long id){
 		return jdbcTemplate.query(query, new ResearchMapper(), new Object[]{id});
 	}
-
 
 }

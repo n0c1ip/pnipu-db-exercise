@@ -81,6 +81,7 @@ public class PatientController {
 	private void handleNewPatientButton() {
 		Patient newPatient = new Patient();
 		newPatient.setBirthDay(new Date());
+		newPatient.setMale(new Short("0"));
 		mainController.getModalController().showPatientEditDialog("Добавление нового пациента", newPatient, new ArrayList<>(), new ArrayList<>());
 	}
 

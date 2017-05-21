@@ -13,7 +13,7 @@ import java.util.List;
 public class DiagnosisDaoJdbc {
 
 	private static final String query =
-			"SELECT D.firstName as d_firstName, D.lastName as d_lastName, D.middleName as d_middleName, D_S.title as ds_title,\n" +
+			"SELECT d.firstName as d_firstName, D.lastName as d_lastName, D.middleName as d_middleName, D_S.title as ds_title,\n" +
 					"       P.firstName as p_firstName, P.lastName as p_lastName, P.middleName as p_middleName,\n" +
 					"       DIS.title as dis_title, date, doc_comment from diagnoses\n" +
 					"JOIN doctors as D on diagnoses.doctor = D.id\n" +
