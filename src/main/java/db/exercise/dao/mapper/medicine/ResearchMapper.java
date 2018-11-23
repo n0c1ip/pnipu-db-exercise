@@ -13,7 +13,7 @@ public class ResearchMapper implements RowMapper<Research> {
 	@Override
 	public Research mapRow(ResultSet resultSet, int i) throws SQLException {
 		Research research = new Research();
-		research.setDate(resultSet.getDate("res_date"));
+		research.setDate(resultSet.getDate("d_date"));
 		research.setPatient(new Patient(resultSet.getString("p_firstName"),
 				resultSet.getString("p_lastName"),
 				resultSet.getString("p_middleName")));

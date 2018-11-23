@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class SchedulerDaoJdbc {
 
-	private static final String query = "SELECT * from v_visits";
+	private static final String query = "SELECT * FROM V_VISITS";
 
 	@Autowired
 	@Qualifier(value = "medicineTemplate")

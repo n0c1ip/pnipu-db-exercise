@@ -14,7 +14,7 @@ public class DiagnosisMapper implements RowMapper<Diagnosis> {
 	@Override
 	public Diagnosis mapRow(ResultSet resultSet, int i) throws SQLException {
 		Diagnosis diagnosis = new Diagnosis();
-		diagnosis.setDate(resultSet.getDate("date"));
+		diagnosis.setDate(resultSet.getDate("d_date"));
 		diagnosis.setDisease(resultSet.getString("dis_title"));
 		diagnosis.setDoctor(new Doctor(resultSet.getString("d_firstName"),
 				resultSet.getString("d_lastName"),
